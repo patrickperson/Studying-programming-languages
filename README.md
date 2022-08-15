@@ -1,6 +1,6 @@
 # Studying-programming-languages
 <br/>
-<h2>Languages / structures learned:</h2>
+<h2>Languages / structures posted:</h2>
 
 <ol type="A">
   <li>Python</li>
