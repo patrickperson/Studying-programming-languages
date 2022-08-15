@@ -1,0 +1,13 @@
+console.log(a); //shows in console the value in a
+
+mynumber++; //adds 1
+mynumber--; // subtracts 1
+
+x= 3%2; // get remainder of division
+
+x+=5 // = x=x+5
+x-=5 // = x=x-5
+x*=5 // = x=x*5
+x/=5 // = x=x/5
+
+if (x==y){//do something}

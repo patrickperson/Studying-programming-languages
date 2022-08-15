@@ -1,0 +1,16 @@
+Undefined;
+null;
+boolean;
+string;
+symbol;
+number;
+object;
+
+
+declarations:
+-var hi="Hello"; //used through all code
+
+let ourName="HI"; //used in the section declared
+
+cost pi = 3.14; // never change
+
