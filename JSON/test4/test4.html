@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" 
+        content="ie=edge">
+        <title>TEST 4 RUNNING</title>
+    </head>
+    <body>
+        <!-- creating variables: 2 buttons and 2 input texts-->
+        <div id="addButton">Add to storage</div>
+        <div id="seeButton">View Storage</div>
+        First: <input type="text" id ="firstName">
+        Last:  <input type="text" id ="lastName">
+        <script>
+            //defining what happens when clicking in buttons
+            document.getElementById('addButton').addEventListener('click',
+            addToStorage);
+            document.getElementById('seeButton').addEventListener('click',
+            viewStorage);
+            const people=JSON.parse(localStorage.getItem('tester')) ||{'first':'none','last':'none'};
+            console.log(people);
+            // defining functions used
+            function addToStorage(){
+                let tempFirst=document.getElementById('firstName').value;
+                let tempLast=document.getElementById('lastName').value;
+                let myObj=JSON.stringify({"first":tempFirst,"last":tempLast});
+
+                localStorage.setItem('tester',myObj);
+                console.log('Clicked: '+myObj);
+            }
+            function viewStorage(){
+                let tempHolder=localStorage.getItem('tester')||people;
+                console.log(JSON.parse(tempHolder));
+            }
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,3 @@
+1: https://jsonformatter.curiousconcept.com/
+2: https://jsonlint.com/
+3: https://myjson.dit.upm.es/ #usado para gerar links com o json

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" 
+        content="ie=edge">
+        <title>TEST 5 - ACESS JSON FROM LINK</title>
+    </head>
+
+    <body>
+        <!-- get JSON from website-->
+        <!-- Here are defined variables displayed in HTML-->
+        <div id="addButton">Get USERS</div>
+        <div id="output"></div>
+
+        <script>
+            //defining what happens when clicking in buttons
+            const addButton = document.getElementById('addButton');
+            addButton.addEventListener('click',addJSON);
+
+            //defining HTML text output
+            const output=document.querySelector('#output');
+            
+            //creating string function to captalize only first letter of word
+            String.prototype.capitalize=function(){
+                return this.charAt(0).toUpperCase()+this.slice(1);
+            }
+
+            //function addJSON prints in HTML the user first and last name
+            function addJSON(){
+                const url="https://randomuser.me/api/?results=10";
+                output.innerHTML="";//clear output
+                //fetch object returns a object with 2 values-
+                //first is content (you can get it with .text or .json) and second is status
+                fetch(url).then(function(response){
+                    //console.log(response.status);
+                    return response.json()
+                })
+                //method return is stored in "data" in the next ".then"
+                .then(function(data){
+                    let people=data.results; //accessing atribute results
+                    console.log(people);
+                    //map function allows to manipulate elements from object
+                    //or array, val is the value from item[i]
+                    //and i is the index
+                    //outside map:item[i].first
+                    //inside map:item.first
+                    return people.map(function(val,i){
+                        //here are defined variables that will be displayed
+                        //they are created using javascript beucause
+                        //they are dinamic
+                        let div=document.createElement('div');
+                        let img=document.createElement('img');
+                        let span=document.createElement('span');
+                        let firstName=val.name.first.capitalize();
+                        let lastName=val.name.last.capitalize();
+                        img.src=val.picture.thumbnail;//source of pic
+                        span.innerHTML='<div>'+(i+1)+'.'+firstName+' '+
+                            lastName+'</div>';
+                        div.appendChild(span);
+                        div.appendChild(img);
+                        output.appendChild(div);
+
+                    })
+                })
+                //used to show error from .fetch() function, if happens
+                .catch(function(error){
+                    console.log(error);
+                })
+
+            }
+
+        </script>
+
+    </body>
+</html>

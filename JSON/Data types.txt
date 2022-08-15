@@ -1,0 +1,6 @@
+string: "Hello world" "Kyle"
+number: 10 1.5 -30
+object (JSON object): {"key":"value"} {"age": 30}
+array: [1,2,3] ["Hello","World"]
+boolean: true false
+null: null
